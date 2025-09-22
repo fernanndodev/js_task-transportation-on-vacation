@@ -5,26 +5,22 @@
  * @return {number}
  */
 
-const lowDays = 3;
-const middleDays = 6;
-const withoutDescont = 40;
-const lowDescont = 20;
-const highDescont = 50;
-let total = 0;
-
 function calculateRentalCost(days) {
+  const lowDays = 3;
+  const middleDays = 6;
+  const withoutDescont = 40;
+  const lowDescont = 20;
+  const highDescont = 50;
+
   if (days < lowDays) {
-    total = days * withoutDescont;
-
-    return total;
-  } else if (days >= lowDays && days <= middleDays) {
-    total = days * withoutDescont - lowDescont;
-
-    return total;
+    return days * withoutDescont;
   }
-  total = days * withoutDescont - highDescont;
 
-  return total;
+  if (days >= lowDays && days <= middleDays) {
+    return days * withoutDescont - lowDescont;
+  }
+
+  return days * withoutDescont - highDescont;
 }
 
 module.exports = calculateRentalCost;
